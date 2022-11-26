@@ -11,16 +11,24 @@
  * Requires at least: 5.8
  * Requires PHP: 8.0
  *
+ * ██████╗░░█████╗░██╗░░██╗░██████╗░░█████╗░███████╗░█████╗░██████╗░
+ * ██╔══██╗██╔══██╗██║░░██║██╔════╝░██╔══██╗╚════██║██╔══██╗██╔══██╗
+ * ██████╔╝███████║███████║██║░░██╗░██║░░██║░░███╔═╝███████║██████╔╝
+ * ██╔══██╗██╔══██║██╔══██║██║░░╚██╗██║░░██║██╔══╝░░██╔══██║██╔══██╗
+ * ██║░░██║██║░░██║██║░░██║╚██████╔╝╚█████╔╝███████╗██║░░██║██║░░██║
+ * ╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░░╚═╝░╚═════╝░░╚════╝░╚══════╝╚═╝░░╚═╝╚═╝░░╚═╝
+ *
  * @package Rahgozar
  */
 
 
 /*
 |--------------------------------------------------------------------------
-|
+| Prevent direct access
 |--------------------------------------------------------------------------
 |
-| 
+| Definitely, the most important file in the theme is functions file, which is
+| very important to protect and should be prevented from direct access to it.
 |
 */
 
@@ -29,10 +37,10 @@ defined( 'ABSPATH' ) || exit;
 
 /*
 |--------------------------------------------------------------------------
-|
+| Constants
 |--------------------------------------------------------------------------
-|
-|
+| Constants have values that are defined for use in different parts of the
+| project, and if they are changed, all their references will also change.
 |
 */
 
@@ -58,10 +66,13 @@ require $autoloader;
 
 /*
 |--------------------------------------------------------------------------
-|
+| TinyMCE
 |--------------------------------------------------------------------------
+| TinyMCE is an online rich-text editor released as open-source software under
+| the MIT License. It has the ability to convert HTML text area fields or other
+| HTML elements to editor instances.
 |
-| 
+| Customize the TinyMCE.
 |
 */
 
