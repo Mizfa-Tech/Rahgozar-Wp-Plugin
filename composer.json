@@ -1,0 +1,13 @@
+{
+    "name": "mr-basirnia/rahgozar",
+    "type": "wp-plugin",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "ммđ αмıи ᴾᴴᴾ",
+            "email": "51942680+Mr-Basirnia@users.noreply.github.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
