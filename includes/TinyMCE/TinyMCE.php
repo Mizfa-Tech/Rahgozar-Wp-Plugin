@@ -7,7 +7,7 @@ class TinyMCE {
 
 	public function __construct() {
 		// init process for button control
-		add_action( 'init', array( $this, 'add_button' ) );
+		add_action( 'init', array( $this, 'register_button' ) );
 	}
 
 	/**
@@ -15,7 +15,7 @@ class TinyMCE {
 	 *
 	 * @return void
 	 */
-	public function add_button(): void {
+	public function register_button(): void {
 		// Don't bother doing this stuff if the current user lacks permissions
 		if ( ! current_user_can( 'edit_posts' ) && ! current_user_can( 'edit_pages' ) ) {
 			return;
@@ -24,7 +24,7 @@ class TinyMCE {
 		// Add only in Rich Editor mode
 		if ( get_user_option( 'rich_editing' ) == 'true' ) {
 			add_filter( "mce_external_plugins", array( $this, 'ipsum_plugin' ), 0 );
-			add_filter( 'mce_buttons', array( $this, 'register_button' ) );
+			add_filter( 'mce_buttons', array( $this, 'add_button' ) );
 		}
 	}
 
@@ -35,7 +35,7 @@ class TinyMCE {
 	 *
 	 * @return mixed
 	 */
-	public function register_button( $buttons ): mixed {
+	public function add_button( $buttons ): mixed {
 		array_push( $buttons, 'separator', 'loremipsum' );
 
 		return $buttons;
