@@ -11,7 +11,7 @@ class TinyMCEIpsum {
 	}
 
 	/**
-	 *
+	 * display ipsum rahgozar text
 	 *
 	 * @param $status
 	 *
