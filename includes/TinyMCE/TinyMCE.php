@@ -16,7 +16,7 @@ class TinyMCE {
 	}
 
 	/**
-	 *
+	 * register rahgozar generator buttons
 	 *
 	 * @return void
 	 */
@@ -34,7 +34,7 @@ class TinyMCE {
 	}
 
 	/**
-	 *
+	 * add rahgozar generator button to list of buttons.
 	 *
 	 * @param $buttons
 	 *
