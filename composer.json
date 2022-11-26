@@ -8,6 +8,11 @@
             "email": "51942680+Mr-Basirnia@users.noreply.github.com"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "rahgozar\\inc\\" : "includes/"
+        }
+    },
     "minimum-stability": "stable",
     "require": {}
 }
