@@ -2,6 +2,11 @@
 
 namespace rahgozar\inc\TinyMCE;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+
 class TinyMCE {
 
 
