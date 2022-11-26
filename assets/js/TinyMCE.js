@@ -1,7 +1,7 @@
 (function () {
 
-    tinymce.PluginManager.add('loremipsum', function (editor, url) {
-        editor.addButton('loremipsum', {
+    tinymce.PluginManager.add('rahgozar_ipsum', function (editor, url) {
+        editor.addButton('rahgozar_ipsum', {
             text: ' متن ساز رهگذر ',
             image: url + '/../images/icon.png',
             type: 'button',

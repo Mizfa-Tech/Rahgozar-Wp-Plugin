@@ -41,7 +41,7 @@ class TinyMCE {
 	 * @return mixed
 	 */
 	public function add_button( $buttons ): mixed {
-		array_push( $buttons, 'separator', 'loremipsum' );
+		array_push( $buttons, 'separator', 'rahgozar_ipsum' );
 
 		return $buttons;
 	}
@@ -54,7 +54,7 @@ class TinyMCE {
 	 * @return mixed
 	 */
 	public function ipsum_plugin( $plugin_array ): mixed {
-		$plugin_array['loremipsum'] = RAHGOZAR_URL . 'assets/js/TinyMCE.js';
+		$plugin_array['rahgozar_ipsum'] = RAHGOZAR_URL . 'assets/js/TinyMCE.js';
 
 		return $plugin_array;
 	}
