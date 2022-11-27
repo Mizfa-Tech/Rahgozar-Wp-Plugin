@@ -31,6 +31,10 @@ wp.blocks.registerBlockType('rahgozar/custom-block', {
     },
 
     save: function (props) {
-        return null;
+        return React.createElement("div", {
+            class: "rahgozar"
+        }, React.createElement("p", {
+            class: "rahgozar_text"
+        }, props.attributes.rahgozar_text));
     }
 });
