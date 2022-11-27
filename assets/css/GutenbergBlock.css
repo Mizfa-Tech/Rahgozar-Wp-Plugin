@@ -1,0 +1,12 @@
+.rahgozar_block_label {
+    display: block;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.rahgozar_block_textarea {
+    width: 100%;
+    border-color: #e2e4e7;
+    border-radius: 8px;
+    padding: 10px;
+}

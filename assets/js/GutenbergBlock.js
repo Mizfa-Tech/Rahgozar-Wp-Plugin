@@ -19,15 +19,21 @@ wp.blocks.registerBlockType('rahgozar/custom-block', {
             })
         }
 
-        return React.createElement("div", null, React.createElement("label", {
-            for: "rahgozar_block_review"
-        }, "متن ساز رهگذر"), React.createElement("br", null), React.createElement("textarea", {
-            id: "rahgozar_block_review",
-            name: "rahgozar_block",
-            rows: "8",
-            cols: "100",
-            onChange: updateRahgozarText
-        }, props.attributes.rahgozar_text));
+        return React.createElement("div", {
+                class: "rahgozar_block_editor"
+            },
+            React.createElement("label", {
+                class: "rahgozar_block_label",
+                for: "rahgozar_block_review"
+            }, "متن رهگذر"),
+            React.createElement("textarea", {
+                class: "rahgozar_block_textarea",
+                id: "rahgozar_block_review",
+                name: "rahgozar_block",
+                rows: "5",
+                cols: "100",
+                onChange: updateRahgozarText
+            }, props.attributes.rahgozar_text));
     },
 
     save: function (props) {
