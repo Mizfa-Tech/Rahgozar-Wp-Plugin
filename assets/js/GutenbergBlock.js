@@ -1,7 +1,7 @@
 wp.blocks.registerBlockType('rahgozar/custom-block', {
     title: 'متن ساز رهگذر',
     icon: 'editor-paragraph',
-    description: 'description',
+    description: 'رهگذر نویسند‌ه‌ای خیالی است که متنی موقت برای طراحان گرافیک و وبسایت می‌نویسد. این متن یک متن ساختگی است، که در طرح های اولیه گرافیکی و پیاده سازی اولیه وب سایت ها استفاده می‌شود.',
     category: 'text',
 
     attributes: {
