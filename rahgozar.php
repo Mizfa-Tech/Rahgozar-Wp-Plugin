@@ -77,3 +77,15 @@ require $autoloader;
 */
 
 $tinyMCE = new \rahgozar\inc\TinyMCE\TinyMCE();
+
+
+/*
+|--------------------------------------------------------------------------
+| Gutenberg block
+|--------------------------------------------------------------------------
+|
+|
+|
+*/
+
+$gutenberg = new \rahgozar\inc\Gutenberg\Gutenberg();
