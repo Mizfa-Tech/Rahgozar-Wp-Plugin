@@ -14,6 +14,14 @@ class Gutenberg {
 	 * @return void
 	 */
 	public function register_block(): void {
+
+		wp_enqueue_style(
+			'rahgozar-gutenberg-block-css',
+			RAHGOZAR_URL . '/assets/css/GutenbergBlock.css',
+			array(),
+			true
+		);
+
 		wp_enqueue_script(
 			'rahgozar-gutenberg-block',
 			RAHGOZAR_URL . '/assets/js/GutenbergBlock.js',
