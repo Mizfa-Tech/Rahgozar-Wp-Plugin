@@ -25,13 +25,12 @@ wp.blocks.registerBlockType('rahgozar/custom-block', {
             React.createElement("label", {
                 class: "rahgozar_block_label",
                 for: "rahgozar_block_review"
-            }, "متن ساز رهگذر"),
-            React.createElement("br", null),
+            }, "متن رهگذر"),
             React.createElement("textarea", {
                 class: "rahgozar_block_textarea",
                 id: "rahgozar_block_review",
                 name: "rahgozar_block",
-                rows: "8",
+                rows: "5",
                 cols: "100",
                 onChange: updateRahgozarText
             }, props.attributes.rahgozar_text));
