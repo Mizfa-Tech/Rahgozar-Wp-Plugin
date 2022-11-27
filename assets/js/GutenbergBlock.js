@@ -1,6 +1,6 @@
 wp.blocks.registerBlockType('rahgozar/custom-block', {
     title: 'متن ساز رهگذر',
-    icon: '../images/icon.png',
+    icon: 'editor-paragraph',
     description: 'description',
     category: 'text',
 
