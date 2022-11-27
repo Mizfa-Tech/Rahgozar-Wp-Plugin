@@ -83,8 +83,8 @@ $tinyMCE = new \rahgozar\inc\TinyMCE\TinyMCE();
 |--------------------------------------------------------------------------
 | Gutenberg block
 |--------------------------------------------------------------------------
-|
-|
+| Gutenberg, the editor that has taken the classic place and is now one of
+| the most powerful editors, blocks related to Gutenberg are placed in this file.
 |
 */
 

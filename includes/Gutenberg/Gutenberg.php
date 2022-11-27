@@ -20,6 +20,7 @@ class Gutenberg {
 	 */
 	public function register_block(): void {
 
+		// all block styles
 		wp_enqueue_style(
 			'rahgozar-gutenberg-block-css',
 			RAHGOZAR_URL . '/assets/css/GutenbergBlock.css',
@@ -27,6 +28,7 @@ class Gutenberg {
 			true
 		);
 
+		// block main js file
 		wp_enqueue_script(
 			'rahgozar-gutenberg-block',
 			RAHGOZAR_URL . '/assets/js/GutenbergBlock.js',
