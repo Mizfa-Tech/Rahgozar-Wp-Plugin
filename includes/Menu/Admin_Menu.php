@@ -47,14 +47,14 @@ class Admin_Menu {
                     <tr>
                         <th scope="row"></th>
                         <td>
-                            <textarea name="ping_sites" id="ping_sites" class="large-text code" rows="5"><?php echo $rahgozar_text ?></textarea>
+                            <textarea name="rahgozar_text" class="large-text code" rows="5"><?php echo $rahgozar_text ?></textarea>
                         </td>
                     </tr>
 
                     <tr>
-                        <th scope="row"><label for="mailserver_url">تعداد کلمات</label></th>
+                        <th scope="row"><label for="text_word_count">تعداد کلمات</label></th>
                         <td>
-                            <input name="mailserver_port" type="text" id="mailserver_port" value="<?php echo count( $text_word_count ); ?>" class="small-text" disabled>
+                            <input type="number" id="text_word_count" value="<?php echo count( $text_word_count ); ?>" class="small-text" disabled>
                         </td>
                     </tr>
 
