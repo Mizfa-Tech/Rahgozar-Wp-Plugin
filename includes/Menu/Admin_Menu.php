@@ -30,6 +30,10 @@ class Admin_Menu {
 	 * @return void
 	 */
 	public function sub_menu_callback(): void {
+
+		$default_text    = 'رهگذر نویسند‌ه‌ای خیالی است که متنی موقت برای طراحان گرافیک و وبسایت می‌نویسد. این متن یک متن ساختگی است، که در طرح های اولیه گرافیکی و پیاده سازی اولیه وب سایت ها استفاده می‌شود. رهگذر در مورد همه چیز اطلاعات دارد از صنعت چاپ سنتی و صنعتی گرفته تا تکنولوژی‌های روز دنیا که هرکدام کاربردهای مختلفی دارند که هدف اصلی هریک بهبود شرایط زندگی شماست. رهگذر کتابهای زیادی درباره‌ی نرم افزارهای مختلف خوانده است و می‌تواند راهنمای خوبی برای طراحان فارسی زبان باشد. طراحان می‌توانند امید داشته باشند که با پیشرفت دنیای تکنولوژی شرایط و مشکلات سخت در حوزه‌ی کاریشان به پایان برسد.';
+		$rahgozar_text   = get_option( 'rahgozar_text', $default_text );
+		$text_word_count = explode( ' ', $rahgozar_text );
 		?>
         <div class="wrap">
             <h2>متن ساز رهگذر</h2>
@@ -43,16 +47,14 @@ class Admin_Menu {
                     <tr>
                         <th scope="row"></th>
                         <td>
-                            <textarea name="ping_sites" id="ping_sites" class="large-text code" rows="5">
-                                رهگذر نویسند‌ه‌ای خیالی است که متنی موقت برای طراحان گرافیک و وبسایت می‌نویسد. این متن یک متن ساختگی است، که در طرح های اولیه گرافیکی و پیاده سازی اولیه وب سایت ها استفاده می‌شود. رهگذر در مورد همه چیز اطلاعات دارد از صنعت چاپ سنتی و صنعتی گرفته تا تکنولوژی‌های روز دنیا که هرکدام کاربردهای مختلفی دارند که هدف اصلی هریک بهبود شرایط زندگی شماست. رهگذر کتابهای زیادی درباره‌ی نرم افزارهای مختلف خوانده است و می‌تواند راهنمای خوبی برای طراحان فارسی زبان باشد. طراحان می‌توانند امید داشته باشند که با پیشرفت دنیای تکنولوژی شرایط و مشکلات سخت در حوزه‌ی کاریشان به پایان برسد.
-                            </textarea>
+                            <textarea name="ping_sites" id="ping_sites" class="large-text code" rows="5"><?php echo $rahgozar_text ?></textarea>
                         </td>
                     </tr>
 
                     <tr>
                         <th scope="row"><label for="mailserver_url">تعداد کلمات</label></th>
                         <td>
-                            <input name="mailserver_port" type="text" id="mailserver_port" value="110" class="small-text" disabled>
+                            <input name="mailserver_port" type="text" id="mailserver_port" value="<?php echo count( $text_word_count ); ?>" class="small-text" disabled>
                         </td>
                     </tr>
 
