@@ -58,7 +58,7 @@ class Admin_Menu {
                     <tr>
                         <th scope="row"></th>
                         <td>
-                            <textarea name="rahgozar_text" class="large-text code" rows="5"><?php echo $rahgozar_text ?></textarea>
+                            <textarea name="rahgozar_text" class="large-text" rows="5"><?php echo $rahgozar_text ?></textarea>
                         </td>
                     </tr>
 
