@@ -93,10 +93,10 @@ $gutenberg = new \rahgozar\inc\Gutenberg\Gutenberg();
 
 /*
 |--------------------------------------------------------------------------
-|
+| Dashboard Menus
 |--------------------------------------------------------------------------
 |
-|
+| Creating the main menu and submenus of the plugin in the WordPress dashboard.
 |
 */
 

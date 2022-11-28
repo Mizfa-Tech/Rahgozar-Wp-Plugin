@@ -17,7 +17,7 @@ class Admin_Menu {
 	}
 
 	/**
-	 *
+	 * add sub_menu in tools menu.
 	 *
 	 * @return void
 	 */
@@ -33,7 +33,7 @@ class Admin_Menu {
 	}
 
 	/**
-	 *
+	 * menu callback content.
 	 *
 	 * @return void
 	 */
@@ -83,7 +83,7 @@ class Admin_Menu {
 	}
 
 	/**
-	 *
+	 * update or save text option.
 	 *
 	 * @param string $text
 	 *
