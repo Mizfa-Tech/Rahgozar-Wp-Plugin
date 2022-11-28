@@ -4,7 +4,15 @@ namespace rahgozar\inc\Menu;
 
 class Admin_Menu {
 
+	/**
+	 * default text
+	 *
+	 * @var string
+	 */
+	private string $default_text;
+
 	public function __construct() {
+		$this->default_text = 'رهگذر نویسند‌ه‌ای خیالی است که متنی موقت برای طراحان گرافیک و وبسایت می‌نویسد. این متن یک متن ساختگی است، که در طرح های اولیه گرافیکی و پیاده سازی اولیه وب سایت ها استفاده می‌شود. رهگذر در مورد همه چیز اطلاعات دارد از صنعت چاپ سنتی و صنعتی گرفته تا تکنولوژی‌های روز دنیا که هرکدام کاربردهای مختلفی دارند که هدف اصلی هریک بهبود شرایط زندگی شماست. رهگذر کتابهای زیادی درباره‌ی نرم افزارهای مختلف خوانده است و می‌تواند راهنمای خوبی برای طراحان فارسی زبان باشد. طراحان می‌توانند امید داشته باشند که با پیشرفت دنیای تکنولوژی شرایط و مشکلات سخت در حوزه‌ی کاریشان به پایان برسد.';
 		add_action( 'admin_menu', array( $this, 'sub_menu' ) );
 	}
 
@@ -31,8 +39,11 @@ class Admin_Menu {
 	 */
 	public function sub_menu_callback(): void {
 
-		$default_text    = 'رهگذر نویسند‌ه‌ای خیالی است که متنی موقت برای طراحان گرافیک و وبسایت می‌نویسد. این متن یک متن ساختگی است، که در طرح های اولیه گرافیکی و پیاده سازی اولیه وب سایت ها استفاده می‌شود. رهگذر در مورد همه چیز اطلاعات دارد از صنعت چاپ سنتی و صنعتی گرفته تا تکنولوژی‌های روز دنیا که هرکدام کاربردهای مختلفی دارند که هدف اصلی هریک بهبود شرایط زندگی شماست. رهگذر کتابهای زیادی درباره‌ی نرم افزارهای مختلف خوانده است و می‌تواند راهنمای خوبی برای طراحان فارسی زبان باشد. طراحان می‌توانند امید داشته باشند که با پیشرفت دنیای تکنولوژی شرایط و مشکلات سخت در حوزه‌ی کاریشان به پایان برسد.';
-		$rahgozar_text   = get_option( 'rahgozar_text', $default_text );
+		if ( $_SERVER['REQUEST_METHOD'] === 'POST' ) {
+			$this->save_text_option( sanitize_textarea_field( $_POST['rahgozar_text'] ) );
+		}
+
+		$rahgozar_text   = get_option( 'rahgozar_text', $this->default_text );
 		$text_word_count = explode( ' ', $rahgozar_text );
 		?>
         <div class="wrap">
@@ -47,14 +58,14 @@ class Admin_Menu {
                     <tr>
                         <th scope="row"></th>
                         <td>
-                            <textarea name="ping_sites" id="ping_sites" class="large-text code" rows="5"><?php echo $rahgozar_text ?></textarea>
+                            <textarea name="rahgozar_text" class="large-text code" rows="5"><?php echo $rahgozar_text ?></textarea>
                         </td>
                     </tr>
 
                     <tr>
-                        <th scope="row"><label for="mailserver_url">تعداد کلمات</label></th>
+                        <th scope="row"><label for="text_word_count">تعداد کلمات</label></th>
                         <td>
-                            <input name="mailserver_port" type="text" id="mailserver_port" value="<?php echo count( $text_word_count ); ?>" class="small-text" disabled>
+                            <input type="number" id="text_word_count" value="<?php echo count( $text_word_count ); ?>" class="small-text" disabled>
                         </td>
                     </tr>
 
@@ -69,5 +80,21 @@ class Admin_Menu {
             </form>
         </div>
 		<?php
+	}
+
+	/**
+	 *
+	 *
+	 * @param string $text
+	 *
+	 * @return void
+	 */
+	private function save_text_option( string $text ): void {
+		$current_text = get_option( 'rahgozar_text', $this->default_text );
+		if ( $text === $current_text ) {
+			return;
+		}
+
+		update_option( 'rahgozar_text', $text );
 	}
 }
