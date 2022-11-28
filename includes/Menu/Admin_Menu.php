@@ -17,7 +17,7 @@ class Admin_Menu {
 	}
 
 	/**
-	 *
+	 * add sub_menu in tools menu.
 	 *
 	 * @return void
 	 */
@@ -33,7 +33,7 @@ class Admin_Menu {
 	}
 
 	/**
-	 *
+	 * menu callback content.
 	 *
 	 * @return void
 	 */
@@ -44,7 +44,7 @@ class Admin_Menu {
 		}
 
 		$rahgozar_text   = get_option( 'rahgozar_text', $this->default_text );
-		$text_word_count = explode( ' ', $rahgozar_text );
+		$text_word_count = ! empty( $rahgozar_text ) ? count( explode( ' ', $rahgozar_text ) ) : 0;
 		?>
         <div class="wrap">
             <h2>متن ساز رهگذر</h2>
@@ -65,7 +65,7 @@ class Admin_Menu {
                     <tr>
                         <th scope="row"><label for="text_word_count">تعداد کلمات</label></th>
                         <td>
-                            <input type="number" id="text_word_count" value="<?php echo count( $text_word_count ); ?>" class="small-text" disabled>
+                            <input type="number" id="text_word_count" value="<?php echo $text_word_count; ?>" class="small-text" disabled>
                         </td>
                     </tr>
 
@@ -83,7 +83,7 @@ class Admin_Menu {
 	}
 
 	/**
-	 *
+	 * update or save text option.
 	 *
 	 * @param string $text
 	 *
