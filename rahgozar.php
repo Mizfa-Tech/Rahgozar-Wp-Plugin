@@ -101,3 +101,18 @@ $gutenberg = new \rahgozar\inc\Gutenberg\Gutenberg();
 */
 
 $dashboard_menu = new \rahgozar\inc\Menu\Admin_Menu();
+
+
+/*
+|--------------------------------------------------------------------------
+| widgets.
+|--------------------------------------------------------------------------
+|
+| register widgets.
+|
+*/
+
+add_action( 'widgets_init', 'rahgozar_register_widgets' );
+function rahgozar_register_widgets(): void {
+	register_widget( '\rahgozar\inc\Widget\Widget' );
+}
