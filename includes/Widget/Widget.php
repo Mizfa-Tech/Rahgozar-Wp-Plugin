@@ -28,12 +28,13 @@ class Widget extends \WP_Widget {
 	 */
 	public function widget( $args, $instance ) {
 		extract( $args );
-		$title = apply_filters( 'widget_title', $instance['title'] );
+		$rahgozar_text = apply_filters( 'widget_block_content', $instance['rahgozar_text'] );
 		echo $before_widget;
-		if ( ! empty( $title ) ) {
-			echo $before_title . $title . $after_title;
-		}
-		echo __( 'Hello, World!', 'text_domain' );
+		?>
+        <p class="rahgozar_text">
+			<?php echo $rahgozar_text; ?>
+        </p>
+		<?php
 		echo $after_widget;
 	}
 
@@ -46,17 +47,19 @@ class Widget extends \WP_Widget {
 	 *
 	 */
 	public function form( $instance ) {
-		if ( isset( $instance['title'] ) ) {
-			$title = $instance['title'];
+		if ( isset( $instance['rahgozar_text'] ) ) {
+			$rahgozar_text = trim( $instance['rahgozar_text'] );
 		} else {
-			$title = __( 'New title', 'text_domain' );
+			$rahgozar_text = trim( 'رهگذر نویسند‌ه‌ای خیالی است که متنی موقت برای طراحان گرافیک و وبسایت می‌نویسد. این متن یک متن ساختگی است، که در طرح های اولیه گرافیکی و پیاده سازی اولیه وب سایت ها استفاده می‌شود. رهگذر در مورد همه چیز اطلاعات دارد از صنعت چاپ سنتی و صنعتی گرفته تا تکنولوژی‌های روز دنیا که هرکدام کاربردهای مختلفی دارند که هدف اصلی هریک بهبود شرایط زندگی شماست. رهگذر کتابهای زیادی درباره‌ی نرم افزارهای مختلف خوانده است و می‌تواند راهنمای خوبی برای طراحان فارسی زبان باشد. طراحان می‌توانند امید داشته باشند که با پیشرفت دنیای تکنولوژی شرایط و مشکلات سخت در حوزه‌ی کاریشان به پایان برسد.' );
 		}
 		?>
         <p>
-            <label for="<?php echo $this->get_field_name( 'title' ); ?>">
+            <label for="<?php echo $this->get_field_name( 'rahgozar_text' ); ?>">
                 متن رهگذر :
             </label>
-            <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>"/>
+            <textarea class="rahgozar_block_textarea" name="<?php echo $this->get_field_name( 'rahgozar_text' ); ?>" id="<?php echo $this->get_field_id( 'rahgozar_text' ); ?>" cols="100" rows="8">
+                <?php echo $rahgozar_text; ?>
+            </textarea>
         </p>
 		<?php
 	}
@@ -72,8 +75,8 @@ class Widget extends \WP_Widget {
 	 *
 	 */
 	public function update( $new_instance, $old_instance ) {
-		$instance          = array();
-		$instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
+		$instance                  = array();
+		$instance['rahgozar_text'] = ( ! empty( $new_instance['rahgozar_text'] ) ) ? sanitize_textarea_field( trim( $new_instance['rahgozar_text'] ) ) : '';
 
 		return $instance;
 	}
