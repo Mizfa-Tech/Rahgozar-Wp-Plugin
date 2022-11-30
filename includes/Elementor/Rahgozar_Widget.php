@@ -13,6 +13,62 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Rahgozar_Widget extends Rahgozar_Widget_Base {
 
 	/**
+	 *
+	 *
+	 * @var string
+	 */
+	private string $text = '';
+
+	/**
+	 *
+	 *
+	 * @var array|string[]
+	 */
+	private array $types = array(
+		'paragraph' => 'پاراگراف',
+		'text'      => 'جمله',
+		'word'      => 'کلمه'
+	);
+
+	/**
+	 *
+	 *
+	 * @var array|string[]
+	 */
+	private array $tags = array(
+		'h1'   => 'H1',
+		'h2'   => 'H2',
+		'h3'   => 'H3',
+		'h4'   => 'H4',
+		'h5'   => 'H5',
+		'h6'   => 'H6',
+		'div'  => 'div',
+		'p'    => 'p',
+		'span' => 'span',
+	);
+
+	/**
+	 * Widget base constructor.
+	 *
+	 * Initializing the widget base class.
+	 *
+	 * @param array      $data Widget data. Default is an empty array.
+	 * @param array|null $args Optional. Widget default arguments. Default is null.
+	 *
+	 * @throws \Exception If arguments are missing when initializing a full widget
+	 *                   instance.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 *
+	 */
+	public function __construct( $data = [], $args = null ) {
+		parent::__construct( $data, $args );
+
+		$this->text = 'رهگذر نویسند‌ه‌ای خیالی است که متنی موقت برای طراحان گرافیک و وبسایت می‌نویسد. این متن یک متن ساختگی است، که در طرح های اولیه گرافیکی و پیاده سازی اولیه وب سایت ها استفاده می‌شود. رهگذر در مورد همه چیز اطلاعات دارد از صنعت چاپ سنتی و صنعتی گرفته تا تکنولوژی‌های روز دنیا که هرکدام کاربردهای مختلفی دارند که هدف اصلی هریک بهبود شرایط زندگی شماست. رهگذر کتابهای زیادی درباره‌ی نرم افزارهای مختلف خوانده است و می‌تواند راهنمای خوبی برای طراحان فارسی زبان باشد. طراحان می‌توانند امید داشته باشند که با پیشرفت دنیای تکنولوژی شرایط و مشکلات سخت در حوزه‌ی کاریشان به پایان برسد.';
+	}
+
+	/**
 	 * Get widget name.
 	 *
 	 * Retrieve list widget name.
@@ -99,11 +155,7 @@ class Rahgozar_Widget extends Rahgozar_Widget_Base {
 			array(
 				'label'   => 'نوع : ',
 				'type'    => Controls_Manager::SELECT,
-				'options' => array(
-					'paragraph' => 'پاراگراف',
-					'text'      => 'جمله',
-					'word'      => 'کلمه'
-				),
+				'options' => $this->types,
 				'default' => 'paragraph'
 			)
 		);
@@ -123,17 +175,7 @@ class Rahgozar_Widget extends Rahgozar_Widget_Base {
 			array(
 				'label'   => 'تگ HTML : ',
 				'type'    => Controls_Manager::SELECT,
-				'options' => array(
-					'h1'   => 'H1',
-					'h2'   => 'H2',
-					'h3'   => 'H3',
-					'h4'   => 'H4',
-					'h5'   => 'H5',
-					'h6'   => 'H6',
-					'div'  => 'div',
-					'p'    => 'p',
-					'span' => 'span',
-				),
+				'options' => $this->tags,
 				'default' => 'p',
 			)
 		);
@@ -164,8 +206,61 @@ class Rahgozar_Widget extends Rahgozar_Widget_Base {
 		?>
 
         <<?php echo $settings['rahgozar_ipsum_tag']; ?> class="<?php echo $settings['rahgozar_ipsum_tag_class']; ?>">
+
+		<?php echo $this->render_text_content( $settings['rahgozar_ipsum_select'], $settings['rahgozar_ipsum_count'] ); ?>
+
         </<?php echo $settings['rahgozar_ipsum_tag']; ?>>
 
 		<?php
+	}
+
+	/**
+	 *
+	 *
+	 * @param string $type
+	 * @param int    $count
+	 *
+	 * @return string
+	 */
+	private function render_text_content( string $type, int $count ): string {
+		if ( ! in_array( $type, array_keys( $this->types ) ) ) {
+			return '';
+		}
+		$method_name = 'get_' . $type;
+
+		return $this->{$method_name}( $count );
+	}
+
+	/**
+	 *
+	 *
+	 * @param int $count
+	 *
+	 * @return string
+	 */
+	private function get_paragraph( int $count ): string {
+		return 'paragraph';
+	}
+
+	/**
+	 *
+	 *
+	 * @param int $count
+	 *
+	 * @return string
+	 */
+	private function get_text( int $count ): string {
+		return 'text';
+	}
+
+	/**
+	 *
+	 *
+	 * @param int $count
+	 *
+	 * @return string
+	 */
+	private function get_word( int $count ): string {
+		return 'word';
 	}
 }
