@@ -88,19 +88,63 @@ class Rahgozar_Widget extends Rahgozar_Widget_Base {
 	protected function register_controls() {
 		$this->start_controls_section(
 			'rahgozar_ipsum_setting',
-			[
-				'label' => 'تنظیمات رهگذر',
+			array(
+				'label' => 'رهگذر',
 				'tab'   => Controls_Manager::TAB_CONTENT,
-			]
+			)
 		);
 
 		$this->add_control(
 			'rahgozar_ipsum_select',
-			[
-				'label'   => 'عنوان',
+			array(
+				'label'   => 'نوع : ',
+				'type'    => Controls_Manager::SELECT,
+				'options' => array(
+					'paragraph' => 'پاراگراف',
+					'text'      => 'جمله',
+					'word'      => 'کلمه'
+				),
+				'default' => 'paragraph'
+			)
+		);
+
+		$this->add_control(
+			'rahgozar_ipsum_count',
+			array(
+				'label'   => 'تعداد : ',
+				'type'    => Controls_Manager::NUMBER,
+				'min'     => 1,
+				'default' => 1,
+			)
+		);
+
+		$this->add_control(
+			'rahgozar_ipsum_tag',
+			array(
+				'label'   => 'تگ HTML : ',
+				'type'    => Controls_Manager::SELECT,
+				'options' => array(
+					'h1'   => 'H1',
+					'h2'   => 'H2',
+					'h3'   => 'H3',
+					'h4'   => 'H4',
+					'h5'   => 'H5',
+					'h6'   => 'H6',
+					'div'  => 'div',
+					'p'    => 'p',
+					'span' => 'span',
+				),
+				'default' => 'p',
+			)
+		);
+
+		$this->add_control(
+			'rahgozar_ipsum_tag_class',
+			array(
+				'label'   => 'کلاس ها : ',
 				'type'    => Controls_Manager::TEXT,
-				'default' => ''
-			]
+				'default' => '',
+			)
 		);
 
 
@@ -116,6 +160,12 @@ class Rahgozar_Widget extends Rahgozar_Widget_Base {
 	 * @access protected
 	 */
 	protected function render() {
-		echo 'Hi';
+		$settings = $this->get_settings_for_display();
+		?>
+
+        <<?php echo $settings['rahgozar_ipsum_tag']; ?> class="<?php echo $settings['rahgozar_ipsum_tag_class']; ?>">
+        </<?php echo $settings['rahgozar_ipsum_tag']; ?>>
+
+		<?php
 	}
 }
