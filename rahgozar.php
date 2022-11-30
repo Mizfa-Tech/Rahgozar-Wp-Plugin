@@ -64,69 +64,20 @@ if ( ! file_exists( $autoloader = RAHGOZAR_PATH . '/vendor/autoload.php' ) ) {
 require $autoloader;
 
 
-/*
-|--------------------------------------------------------------------------
-| TinyMCE
-|--------------------------------------------------------------------------
-| TinyMCE is an online rich-text editor released as open-source software under
-| the MIT License. It has the ability to convert HTML text area fields or other
-| HTML elements to editor instances.
-|
-| Customize the TinyMCE.
-|
-*/
-
-$tinyMCE = new \rahgozar\inc\TinyMCE\TinyMCE();
-
-
-/*
-|--------------------------------------------------------------------------
-| Gutenberg block
-|--------------------------------------------------------------------------
-| Gutenberg, the editor that has taken the classic place and is now one of
-| the most powerful editors, blocks related to Gutenberg are placed in this file.
-|
-*/
-
-$gutenberg = new \rahgozar\inc\Gutenberg\Gutenberg();
-
-
-/*
-|--------------------------------------------------------------------------
-| Dashboard Menus
-|--------------------------------------------------------------------------
-|
-| Creating the main menu and submenus of the plugin in the WordPress dashboard.
-|
-*/
-
-$dashboard_menu = new \rahgozar\inc\Menu\Admin_Menu();
-
-
-/*
-|--------------------------------------------------------------------------
-| Widgets.
-|--------------------------------------------------------------------------
-|
-| Register widgets.
-|
-*/
-
-add_action( 'widgets_init', 'rahgozar_register_widgets' );
-function rahgozar_register_widgets(): void {
-	register_widget( '\rahgozar\inc\Widget\Widget' );
+// Include the main Rahgozar class.
+if ( ! class_exists( '\rahgozar\bootstrap\Rahgozar', false ) ) {
+	require_once RAHGOZAR_PATH . '/bootstrap/Rahgozar.php';
 }
 
 
 /*
 |--------------------------------------------------------------------------
-| Elementor widgets
+|
 |--------------------------------------------------------------------------
 |
-| Register elementor widgets.
+|
 |
 */
 
-add_action( 'elementor/widgets/register', function ( $widgets_manager ) {
-	$widgets_manager->register( new \rahgozar\inc\Elementor\Rahgozar_Widget() );
-} );
+$rahgozar = \rahgozar\bootstrap\Rahgozar::instance();
+$rahgozar->boot();
