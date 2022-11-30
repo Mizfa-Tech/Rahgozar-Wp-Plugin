@@ -243,14 +243,16 @@ class Rahgozar_Widget extends Rahgozar_Widget_Base {
 	}
 
 	/**
-	 *
+	 * text content.
 	 *
 	 * @param int $count
 	 *
 	 * @return string
 	 */
 	private function get_text( int $count ): string {
-		return 'text';
+		$text = explode( '.', $this->text );
+
+		return implode( '. ', array_slice( $text, 0, $count ) );
 	}
 
 	/**
