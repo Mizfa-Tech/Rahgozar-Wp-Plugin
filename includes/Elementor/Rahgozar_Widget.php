@@ -232,14 +232,14 @@ class Rahgozar_Widget extends Rahgozar_Widget_Base {
 	}
 
 	/**
-	 *
+	 * paragraph content.
 	 *
 	 * @param int $count
 	 *
 	 * @return string
 	 */
 	private function get_paragraph( int $count ): string {
-		return 'paragraph';
+		return str_repeat( $this->text, $count );
 	}
 
 	/**
