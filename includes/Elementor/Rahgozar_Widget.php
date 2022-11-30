@@ -256,13 +256,15 @@ class Rahgozar_Widget extends Rahgozar_Widget_Base {
 	}
 
 	/**
-	 *
+	 * word content.
 	 *
 	 * @param int $count
 	 *
 	 * @return string
 	 */
 	private function get_word( int $count ): string {
-		return 'word';
+		$words = explode( ' ', $this->text );
+
+		return implode( ' ', array_slice( $words, 0, $count ) );
 	}
 }
