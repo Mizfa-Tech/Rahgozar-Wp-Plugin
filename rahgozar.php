@@ -116,3 +116,17 @@ add_action( 'widgets_init', 'rahgozar_register_widgets' );
 function rahgozar_register_widgets(): void {
 	register_widget( '\rahgozar\inc\Widget\Widget' );
 }
+
+
+/*
+|--------------------------------------------------------------------------
+|
+|--------------------------------------------------------------------------
+|
+|
+|
+*/
+
+add_action( 'elementor/widgets/register', function ( $widgets_manager ) {
+	$widgets_manager->register( new \rahgozar\inc\Elementor\Rahgozar_Widget() );
+} );
