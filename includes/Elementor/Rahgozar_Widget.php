@@ -13,14 +13,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Rahgozar_Widget extends Rahgozar_Widget_Base {
 
 	/**
-	 *
+	 * default text.
 	 *
 	 * @var string
 	 */
 	private string $text = '';
 
 	/**
-	 *
+	 * text type.
 	 *
 	 * @var array|string[]
 	 */
@@ -31,7 +31,7 @@ class Rahgozar_Widget extends Rahgozar_Widget_Base {
 	);
 
 	/**
-	 *
+	 * Allowed HTML tags.
 	 *
 	 * @var array|string[]
 	 */
@@ -215,7 +215,7 @@ class Rahgozar_Widget extends Rahgozar_Widget_Base {
 	}
 
 	/**
-	 *
+	 * Dynamic content.
 	 *
 	 * @param string $type
 	 * @param int    $count
